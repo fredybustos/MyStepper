@@ -1,3 +1,53 @@
+.container {
+  width: 100%;
+}
+.progressBar {
+  display: flex;
+  counter-reset: step;
+}
+.progressBar li {
+  list-style: none;
+  width: 33.33%;
+  position: relative;
+  text-align: center;
+}
+.progressBar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid gray;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background: white;
+}
+.progressBar li:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: gray;
+  top: 15px;
+  left: -50%;
+  z-index: -1;
+}
+.progressBar li:first-child::after{
+  content: none;
+}
+.progressBar li.active{
+  color: red;
+}
+.progressBar li.active::before{
+  border-color: red;
+}
+.progressBar li.active + li::after{
+  background: red;
+}
+
+
 .App {
   text-align: center;
 }
